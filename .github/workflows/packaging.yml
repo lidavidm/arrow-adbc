@@ -401,8 +401,7 @@ jobs:
       - source
     strategy:
       matrix:
-        # TODO: "osx_arm64_"
-        arch: ["osx_64_"]
+        arch: ["osx_64_", "osx_arm64_"]
     steps:
       - uses: actions/download-artifact@v3
         with:

@@ -169,6 +169,7 @@ outputs:
     script: build-python.bat                                                     # [win]
     requirements:
       build:
+        - cross-python_{{ target_platform }}                                     # [build_platform != target_platform]
         - pip
         - setuptools
       host:
@@ -193,6 +194,7 @@ outputs:
     script: build-python.bat                                                     # [win]
     requirements:
       build:
+        - cross-python_{{ target_platform }}                                     # [build_platform != target_platform]
         - pip
         - setuptools
       host:
@@ -217,6 +219,7 @@ outputs:
     script: build-python.bat                                                     # [win]
     requirements:
       build:
+        - cross-python_{{ target_platform }}                                     # [build_platform != target_platform]
         - pip
         - setuptools
       host:

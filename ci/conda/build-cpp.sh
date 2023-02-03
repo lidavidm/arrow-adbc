@@ -41,6 +41,11 @@ esac
 if [[ "${target_platform}" == "linux-aarch64" ]] ||
        [[ "${target_platform}" == "osx-arm64" ]]; then
     export GOARCH="arm64"
+
+    # conda sets these which trip the build up
+    CFLAGS="$(echo $CFLAGS | sed 's/-march=core2 //g')"
+    CFLAGS="$(echo $CFLAGS | sed 's/-mtune=haswell //g')"
+    CFLAGS="$(echo $CFLAGS | sed 's/-mssse3 //g')"
 elif [[ "${target_platform}" == "linux-ppc64le" ]]; then
     export GOARCH="ppc64le"
 else
