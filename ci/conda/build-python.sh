@@ -24,6 +24,6 @@ export _ADBC_IS_CONDA=1
 export SETUPTOOLS_SCM_PRETEND_VERSION=$PKG_VERSION
 
 echo "==== INSTALL ${PKG_NAME}"
-$PYTHON -m pip install . -vvv --no-build-isolation --no-clean --no-deps
+$PYTHON setup.py install --single-version-externally-managed --record=record.txt
 
 popd
