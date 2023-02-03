@@ -172,6 +172,7 @@ outputs:
         - cross-python_{{ target_platform }}                                     # [build_platform != target_platform]
         - pip
         - setuptools
+        - wheel
       host:
         - {{ pin_subpackage('adbc-driver-flightsql-go', exact=True) }}
         - pip
@@ -197,6 +198,7 @@ outputs:
         - cross-python_{{ target_platform }}                                     # [build_platform != target_platform]
         - pip
         - setuptools
+        - wheel
       host:
         - {{ pin_subpackage('adbc-driver-postgresql-cpp', exact=True) }}
         - pip
@@ -222,6 +224,7 @@ outputs:
         - cross-python_{{ target_platform }}                                     # [build_platform != target_platform]
         - pip
         - setuptools
+        - wheel
       host:
         - {{ pin_subpackage('adbc-driver-sqlite-cpp', exact=True) }}
         - pip
