@@ -15,34 +15,39 @@
 .. specific language governing permissions and limitations
 .. under the License.
 
-======================
-Feature Support Matrix
-======================
+============
+Installation
+============
 
-.. list-table:: ADBC Feature Support
-   :header-rows: 1
+.. note::
 
-   * - Driver
-     - Bulk Ingestion
-     - Metadata
-     - Partitioned Result Sets
-     - Prepared Statements
-     - Transactions
+   See individual driver pages in the sidebar for specific installation instructions.
 
-   * - SQLite
-     - Yes
-     - Yes
-     - No
-     - Yes
-     - Yes
+C/C++
+=====
 
-Bulk Ingestion
-  Creating or appending to a database table from an Arrow table.
+At this time, separate packages for C/C++-based drivers are not available.
 
-Metadata
-  Functions like :cpp:func:`AdbcConnectionGetObjects` that get
-  metadata about the database catalog, etc.
+Go
+==
 
-Partitioned Result Sets
-  Being able to read individual chunks of a (generally distributed)
-  result set (:cpp:func:`AdbcStatementExecutePartitions`).
+Add a dependency on the driver package, for example:
+
+- ``go get -u github.com/apache/arrow-adbc/go/adbc@latest``
+- ``go get -u github.com/apache/arrow-adbc/go/adbc/driver/flightsql@latest``
+
+Java
+====
+
+Add a dependency on the driver package, for example:
+
+- ``org.apache.arrow.adbc:adbc-driver-flight-sql``
+- ``org.apache.arrow.adbc:adbc-driver-jdbc``
+
+Python
+======
+
+Install the appropriate driver package from PyPI, for example:
+
+- ``pip install adbc_driver_postgresql``
+- ``pip install adbc_driver_sqlite``

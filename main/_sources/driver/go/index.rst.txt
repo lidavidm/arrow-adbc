@@ -15,18 +15,18 @@
 .. specific language governing permissions and limitations
 .. under the License.
 
-============
-C/C++/Python
-============
+==
+Go
+==
 
 .. toctree::
    :maxdepth: 1
    :caption: Drivers
 
-   postgresql
-   sqlite
+   flight_sql
 
 The ADBC project ships some drivers.  Others may (eventually) be
 available from database vendors or third parties.  The drivers here
-implement the C API standard and are directly usable in C/C++.  They
-also provide Python bindings.
+implement the Go API standard and are directly usable in Go.  They
+also provide bindings that let them be used through the C API
+standard, as well as Python bindings on top of that.
