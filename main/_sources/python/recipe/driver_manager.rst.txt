@@ -15,18 +15,11 @@
 .. specific language governing permissions and limitations
 .. under the License.
 
-============
-C/C++/Python
-============
+======================
+Driver Manager Recipes
+======================
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Drivers
+Load a driver from a shared library (DuckDB)
+============================================
 
-   postgresql
-   sqlite
-
-The ADBC project ships some drivers.  Others may (eventually) be
-available from database vendors or third parties.  The drivers here
-implement the C API standard and are directly usable in C/C++.  They
-also provide Python bindings.
+.. recipe:: driver_manager_duckdb.py

@@ -15,17 +15,31 @@
 .. specific language governing permissions and limitations
 .. under the License.
 
-====
-Java
-====
+==================
+PostgreSQL Recipes
+==================
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Drivers
+Authenticate with a username and password
+=========================================
 
-   flight_sql
-   jdbc
+.. recipe:: postgresql_authenticate.py
 
-The ADBC project ships some drivers.  Others may (eventually) be
-available from database vendors or third parties.  The drivers here
-implement the Java API standard.
+Create/append to a table from an Arrow table
+============================================
+
+.. recipe:: postgresql_create_append_table.py
+
+Execute a statement with bind parameters
+========================================
+
+.. recipe:: postgresql_execute_bind.py
+
+Get the Arrow schema of a table
+===============================
+
+.. recipe:: postgresql_get_table_schema.py
+
+List catalogs, schemas, and tables
+==================================
+
+.. recipe:: postgresql_list_catalogs.py
