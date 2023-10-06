@@ -86,7 +86,9 @@ func (suite *ServerBasedTests) SetupTest() {
 }
 
 func (suite *ServerBasedTests) TearDownTest() {
-	suite.Require().NoError(suite.cnxn.Close())
+	if suite.cnxn != nil {
+		suite.Require().NoError(suite.cnxn.Close())
+	}
 }
 
 func (suite *ServerBasedTests) TearDownSuite() {
@@ -98,6 +100,10 @@ func (suite *ServerBasedTests) TearDownSuite() {
 
 func TestAuthn(t *testing.T) {
 	suite.Run(t, &AuthnTests{})
+}
+
+func TestAuthnUserPass(t *testing.T) {
+	suite.Run(t, &AuthnUserPassTests{})
 }
 
 func TestErrorDetails(t *testing.T) {
@@ -213,6 +219,125 @@ func (suite *AuthnTests) SetupSuite() {
 
 func (suite *AuthnTests) TestBearerTokenUpdated() {
 	// apache/arrow-adbc#584: when setting the auth header directly, the client should use any updated token value from the server if given
+	stmt, err := suite.cnxn.NewStatement()
+	suite.Require().NoError(err)
+	defer stmt.Close()
+
+	suite.Require().NoError(stmt.SetSqlQuery("timeout"))
+	reader, _, err := stmt.ExecuteQuery(context.Background())
+	suite.NoError(err)
+	defer reader.Release()
+}
+
+// ---- AuthN (username/password) Tests --------------------
+
+type AuthnUserPassTestServer struct {
+	flightsql.BaseServer
+}
+
+func (server *AuthnUserPassTestServer) GetFlightInfoStatement(ctx context.Context, cmd flightsql.StatementQuery, desc *flight.FlightDescriptor) (*flight.FlightInfo, error) {
+	md := metadata.MD{}
+	md.Set("authorization", "Bearer final")
+	if err := grpc.SendHeader(ctx, md); err != nil {
+		return nil, err
+	}
+	tkt, _ := flightsql.CreateStatementQueryTicket([]byte{})
+	info := &flight.FlightInfo{
+		FlightDescriptor: desc,
+		Endpoint: []*flight.FlightEndpoint{
+			{Ticket: &flight.Ticket{Ticket: tkt}},
+		},
+		TotalRecords: -1,
+		TotalBytes:   -1,
+	}
+	return info, nil
+}
+
+func (server *AuthnUserPassTestServer) DoGetStatement(ctx context.Context, tkt flightsql.StatementQueryTicket) (*arrow.Schema, <-chan flight.StreamChunk, error) {
+	sc := arrow.NewSchema([]arrow.Field{{Name: "a", Type: arrow.PrimitiveTypes.Int32, Nullable: true}}, nil)
+	rec, _, err := array.RecordFromJSON(memory.DefaultAllocator, sc, strings.NewReader(`[{"a": 5}]`))
+	if err != nil {
+		return nil, nil, err
+	}
+
+	ch := make(chan flight.StreamChunk)
+	go func() {
+		defer close(ch)
+		ch <- flight.StreamChunk{
+			Data: rec,
+			Desc: nil,
+			Err:  nil,
+		}
+	}()
+	return sc, ch, nil
+}
+
+func authnUserPassTestUnary(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp interface{}, err error) {
+	md, ok := metadata.FromIncomingContext(ctx)
+	if !ok {
+		return nil, status.Error(codes.InvalidArgument, "Could not get metadata")
+	}
+	auth := md.Get("authorization")
+	if len(auth) == 0 {
+		return nil, status.Error(codes.Unauthenticated, "No token")
+	} else if auth[0] == "Bearer final" {
+		return handler(ctx, req)
+	} else if auth[0] == "Basic cmlnaHQ6cmlnaHQ" {
+		md.Set("authorization", "Bearer final")
+		ctx = metadata.NewOutgoingContext(ctx, md)
+		return handler(ctx, req)
+	}
+
+	return nil, status.Error(codes.Unauthenticated, "Invalid token for unary call: "+auth[0])
+}
+
+func authnUserPassTestStream(srv interface{}, ss grpc.ServerStream, info *grpc.StreamServerInfo, handler grpc.StreamHandler) error {
+	md, ok := metadata.FromIncomingContext(ss.Context())
+	if !ok {
+		return status.Error(codes.InvalidArgument, "Could not get metadata")
+	}
+	auth := md.Get("authorization")
+	if len(auth) == 0 {
+		return status.Error(codes.Unauthenticated, "No token")
+	} else if auth[0] == "Bearer final" {
+		return handler(srv, ss)
+	} else if auth[0] == "Basic cmlnaHQ6cmlnaHQ" {
+		md.Set("authorization", "Bearer final")
+		ss.SetTrailer(md)
+		return handler(srv, ss)
+	}
+
+	return status.Error(codes.Unauthenticated, "Invalid token for stream call: "+auth[0])
+}
+
+type AuthnUserPassTests struct {
+	ServerBasedTests
+}
+
+func (suite *AuthnUserPassTests) SetupSuite() {
+	suite.DoSetupSuite(&AuthnUserPassTestServer{}, []flight.ServerMiddleware{
+		{Stream: authnUserPassTestStream, Unary: authnUserPassTestUnary},
+	}, map[string]string{
+		adbc.OptionKeyUsername: "wrong",
+		adbc.OptionKeyPassword: "wrong",
+	})
+}
+
+func (suite *AuthnUserPassTests) SetupTest() {
+}
+
+func (suite *AuthnUserPassTests) TestBearerTokenUpdated() {
+	var err error
+	suite.cnxn, err = suite.db.Open(context.Background())
+	suite.Require().ErrorContains(err, "Invalid token for stream call")
+
+	suite.NoError(suite.db.SetOptions(map[string]string{
+		adbc.OptionKeyUsername: "right",
+		adbc.OptionKeyPassword: "right",
+	}))
+	suite.cnxn, err = suite.db.Open(context.Background())
+	suite.Require().NoError(err)
+
 	stmt, err := suite.cnxn.NewStatement()
 	suite.Require().NoError(err)
 	defer stmt.Close()
