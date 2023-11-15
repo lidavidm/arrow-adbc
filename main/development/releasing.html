@@ -7,10 +7,10 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="prev" title="Nightly Packages" href="nightly.html" />
 
-    <!-- Generated with Sphinx 5.3.0 and Furo 2023.05.20 -->
-        <title>Release Management Guide - ADBC 0.5.0 (dev) documentation</title>
+    <!-- Generated with Sphinx 6.2.1 and Furo 2023.07.26 -->
+        <title>Release Management Guide - ADBC 0.9.0 (dev) documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=369552022d0b975c8e74270ce6eabe0fb7978f24" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -41,7 +41,7 @@
   }
 </style>
 <script>
-  const currentVersion = "0.5.0 (dev)";
+  const currentVersion = "0.9.0 (dev)";
   const versionsRoot = "../..";
 </script>
 <style>
@@ -96,7 +96,7 @@
     </script>
     
 <nav id="version-switcher">
-  <button type="button" onclick="document.getElementById('version-switcher').classList.toggle('open')">Version: 0.5.0 (dev)</button>
+  <button type="button" onclick="document.getElementById('version-switcher').classList.toggle('open')">Version: 0.9.0 (dev)</button>
   <div class="versions">
     <ul></ul>
   </div>
@@ -183,7 +183,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">ADBC 0.5.0 (dev) documentation</div></a>
+      <a href="../index.html"><div class="brand">ADBC 0.9.0 (dev) documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -210,7 +210,7 @@
     <img class="sidebar-logo only-dark" src="../_static/logo-dark.png" alt="Dark Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">ADBC 0.5.0 (dev) documentation</span>
+  <span class="sidebar-brand-text">ADBC 0.9.0 (dev) documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -224,6 +224,7 @@
 <p class="caption" role="heading"><span class="caption-text">Supported Environments</span></p>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../cpp/index.html">C/C++</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of C/C++</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cpp/quickstart.html">Quickstart</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cpp/driver_manager.html">Driver Manager</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cpp/concurrency.html">Concurrency and Thread Safety</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../cpp/api/index.html">C/C++ API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of C/C++ API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -234,31 +235,39 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://pkg.go.dev/github.com/apache/arrow-adbc/go/adbc">Go</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../java/index.html">Java</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Java</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../java/index.html">Java</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Java</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../java/quickstart.html">Quickstart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../java/driver_manager.html">Driver Manager</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../java/api/index.html">Java API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Java API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../java/api/adbc_driver_manager.html"><code class="docutils literal notranslate"><span class="pre">Java</span> <span class="pre">ADBC</span> <span class="pre">Driver</span> <span class="pre">Manager</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../python/index.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Python</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../python/index.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Python</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../python/quickstart.html">Quickstart</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python/driver_manager.html">Driver Manager</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../python/api/index.html">Python API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Python API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../python/api/index.html">Python API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Python API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../python/api/adbc_driver_manager.html"><code class="docutils literal notranslate"><span class="pre">adbc_driver_manager</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../python/api/adbc_driver_flightsql.html"><code class="docutils literal notranslate"><span class="pre">adbc_driver_flightsql</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../python/api/adbc_driver_postgresql.html"><code class="docutils literal notranslate"><span class="pre">adbc_driver_postgresql</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../python/api/adbc_driver_sqlite.html"><code class="docutils literal notranslate"><span class="pre">adbc_driver_sqlite</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../python/recipe/index.html">Python Cookbook</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Python Cookbook</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../python/recipe/index.html">Python Cookbook</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Python Cookbook</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../python/recipe/driver_manager.html">Driver Manager Recipes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../python/recipe/postgresql.html">PostgreSQL Recipes</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../r/index.html">R</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Drivers</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../driver/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../driver/status.html">Driver Implementation Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../driver/duckdb.html">DuckDB Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../driver/flight_sql.html">Flight SQL Driver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../driver/jdbc.html">JDBC Adapter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../driver/postgresql.html">PostgreSQL Driver</a></li>
@@ -359,6 +368,8 @@ performing a release.</p>
 </section>
 <section id="before-creating-a-release-candidate">
 <h2>Before creating a Release Candidate<a class="headerlink" href="#before-creating-a-release-candidate" title="Permalink to this heading">#</a></h2>
+<p>Regenerate the LICENSE.txt (see CONTRIBUTING.md) and create a pull request if
+any changes were needed.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setup gpg agent for signing artifacts</span>
 <span class="n">source</span> <span class="n">dev</span><span class="o">/</span><span class="n">release</span><span class="o">/</span><span class="n">setup</span><span class="o">-</span><span class="n">gpg</span><span class="o">-</span><span class="n">agent</span><span class="o">.</span><span class="n">sh</span>
 
@@ -441,7 +452,7 @@ Follow up Release Candidates</label><div class="sd-tab-content docutils">
 <span class="c1"># On macOS the only way I could get this to work was running &quot;echo</span>
 <span class="c1"># &quot;UPDATESTARTUPTTY&quot; | gpg-connect-agent&quot; before running this</span>
 <span class="c1"># comment otherwise I got errors referencing &quot;ioctl&quot; errors.</span>
-<span class="n">dev</span><span class="o">/</span><span class="n">release</span><span class="o">/</span><span class="mi">02</span><span class="o">-</span><span class="n">sign</span><span class="o">.</span><span class="n">sh</span> <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">rc</span><span class="o">-</span><span class="n">number</span><span class="o">&gt;</span>
+<span class="n">dev</span><span class="o">/</span><span class="n">release</span><span class="o">/</span><span class="mi">02</span><span class="o">-</span><span class="n">sign</span><span class="o">.</span><span class="n">sh</span> <span class="o">&lt;</span><span class="n">prev</span><span class="o">-</span><span class="n">version</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">rc</span><span class="o">-</span><span class="n">number</span><span class="o">&gt;</span>
 
 <span class="c1"># Upload the source release tarball and signs to</span>
 <span class="c1"># https://dist.apache.org/repos/dist/dev/arrow .</span>
@@ -565,7 +576,7 @@ Upload source release artifacts to Subversion<div class="sd-summary-down docutil
 <p class="sd-card-text">A PMC member must commit the source release artifacts to Subversion:</p>
 <div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># dev/release/post-01-upload.sh 0.1.0 0</span>
 dev/release/post-01-upload.sh<span class="w"> </span>&lt;version&gt;<span class="w"> </span>&lt;rc-number&gt;
-git<span class="w"> </span>push<span class="w"> </span>--tag<span class="w"> </span>apache<span class="w"> </span>apache-arrow-adbc-&lt;version&gt;
+git<span class="w"> </span>push<span class="w"> </span>apache<span class="w"> </span>apache-arrow-adbc-&lt;version&gt;
 </pre></div>
 </div>
 </div>
@@ -600,8 +611,8 @@ Upload wheels/sdist to PyPI<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">We use the twine tool to upload wheels to PyPI:</p>
-<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># dev/release/post-03-python.sh 10.0.0</span>
-dev/release/post-03-python.sh<span class="w"> </span>&lt;version&gt;
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># dev/release/post-03-python.sh 0.1.0 0</span>
+dev/release/post-03-python.sh<span class="w"> </span>&lt;version&gt;<span class="w"> </span>&lt;rc-number&gt;
 </pre></div>
 </div>
 </div>
@@ -806,9 +817,6 @@ dev/release/post-09-website.sh<span class="w"> </span>&lt;arrow-site-dir&gt;<spa
     </aside>
   </div>
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/furo.js"></script>

@@ -5,12 +5,12 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Installation" href="../../driver/installation.html" /><link rel="prev" title="Driver Manager Recipes" href="driver_manager.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="R" href="../../r/index.html" /><link rel="prev" title="Driver Manager Recipes" href="driver_manager.html" />
 
-    <!-- Generated with Sphinx 5.3.0 and Furo 2023.05.20 -->
-        <title>PostgreSQL Recipes - ADBC 0.5.0 (dev) documentation</title>
+    <!-- Generated with Sphinx 6.2.1 and Furo 2023.07.26 -->
+        <title>PostgreSQL Recipes - ADBC 0.9.0 (dev) documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=369552022d0b975c8e74270ce6eabe0fb7978f24" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -41,7 +41,7 @@
   }
 </style>
 <script>
-  const currentVersion = "0.5.0 (dev)";
+  const currentVersion = "0.9.0 (dev)";
   const versionsRoot = "../../..";
 </script>
 <style>
@@ -96,7 +96,7 @@
     </script>
     
 <nav id="version-switcher">
-  <button type="button" onclick="document.getElementById('version-switcher').classList.toggle('open')">Version: 0.5.0 (dev)</button>
+  <button type="button" onclick="document.getElementById('version-switcher').classList.toggle('open')">Version: 0.9.0 (dev)</button>
   <div class="versions">
     <ul></ul>
   </div>
@@ -183,7 +183,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">ADBC 0.5.0 (dev) documentation</div></a>
+      <a href="../../index.html"><div class="brand">ADBC 0.9.0 (dev) documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -210,7 +210,7 @@
     <img class="sidebar-logo only-dark" src="../../_static/logo-dark.png" alt="Dark Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">ADBC 0.5.0 (dev) documentation</span>
+  <span class="sidebar-brand-text">ADBC 0.9.0 (dev) documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -224,6 +224,7 @@
 <p class="caption" role="heading"><span class="caption-text">Supported Environments</span></p>
 <ul class="current">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../cpp/index.html">C/C++</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of C/C++</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../cpp/quickstart.html">Quickstart</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../cpp/driver_manager.html">Driver Manager</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../cpp/concurrency.html">Concurrency and Thread Safety</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../cpp/api/index.html">C/C++ API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of C/C++ API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -234,31 +235,39 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://pkg.go.dev/github.com/apache/arrow-adbc/go/adbc">Go</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../java/index.html">Java</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Java</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../java/index.html">Java</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Java</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../java/quickstart.html">Quickstart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../java/driver_manager.html">Driver Manager</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../java/api/index.html">Java API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Java API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../java/api/adbc_driver_manager.html"><code class="docutils literal notranslate"><span class="pre">Java</span> <span class="pre">ADBC</span> <span class="pre">Driver</span> <span class="pre">Manager</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Python</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Python</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Python</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Python</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../driver_manager.html">Driver Manager</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../api/index.html">Python API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Python API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/index.html">Python API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Python API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../api/adbc_driver_manager.html"><code class="docutils literal notranslate"><span class="pre">adbc_driver_manager</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/adbc_driver_flightsql.html"><code class="docutils literal notranslate"><span class="pre">adbc_driver_flightsql</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/adbc_driver_postgresql.html"><code class="docutils literal notranslate"><span class="pre">adbc_driver_postgresql</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/adbc_driver_sqlite.html"><code class="docutils literal notranslate"><span class="pre">adbc_driver_sqlite</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">Python Cookbook</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Python Cookbook</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">Python Cookbook</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Python Cookbook</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="driver_manager.html">Driver Manager Recipes</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">PostgreSQL Recipes</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../r/index.html">R</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Drivers</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../driver/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../driver/status.html">Driver Implementation Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../driver/duckdb.html">DuckDB Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../driver/flight_sql.html">Flight SQL Driver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../driver/jdbc.html">JDBC Adapter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../driver/postgresql.html">PostgreSQL Driver</a></li>
@@ -330,7 +339,7 @@ be provided in the URI.  For example,</p>
 </div>
 <p>See the <a class="reference external" href="https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING">PostgreSQL documentation</a>
 for full details.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">30</span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">30</span><span class="kn">import</span> <span class="nn">os</span>
 <span class="linenos">31</span>
 <span class="linenos">32</span><span class="kn">import</span> <span class="nn">adbc_driver_postgresql.dbapi</span>
 <span class="linenos">33</span>
@@ -350,7 +359,7 @@ for full details.</p>
 <p>Recipe source: <a class="reference external" href="https://github.com/apache/arrow-adbc/blob/main/docs/source/python/recipe/postgresql_create_append_table.py">postgresql_create_append_table.py</a></p>
 <p>ADBC allows creating and appending to database tables using Arrow
 tables.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">22</span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">22</span><span class="kn">import</span> <span class="nn">os</span>
 <span class="linenos">23</span>
 <span class="linenos">24</span><span class="kn">import</span> <span class="nn">pyarrow</span>
 <span class="linenos">25</span>
@@ -362,12 +371,12 @@ tables.</p>
 </div>
 <p>For the purposes of testing, we’ll first make sure the table
 doesn’t exist.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">33</span><span class="k">with</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cur</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">33</span><span class="k">with</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cur</span><span class="p">:</span>
 <span class="linenos">34</span>    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;DROP TABLE IF EXISTS example&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Now we can create the table.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">37</span><span class="k">with</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cur</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">37</span><span class="k">with</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cur</span><span class="p">:</span>
 <span class="linenos">38</span>    <span class="n">data</span> <span class="o">=</span> <span class="n">pyarrow</span><span class="o">.</span><span class="n">table</span><span class="p">(</span>
 <span class="linenos">39</span>        <span class="p">[</span>
 <span class="linenos">40</span>            <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
@@ -384,7 +393,7 @@ doesn’t exist.</p>
 </pre></div>
 </div>
 <p>After ingestion, we can fetch the result.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">53</span><span class="k">with</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cur</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">53</span><span class="k">with</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cur</span><span class="p">:</span>
 <span class="linenos">54</span>    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM example&quot;</span><span class="p">)</span>
 <span class="linenos">55</span>    <span class="k">assert</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
 <span class="linenos">56</span>    <span class="k">assert</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span> <span class="o">==</span> <span class="p">(</span><span class="mi">2</span><span class="p">,)</span>
@@ -395,23 +404,25 @@ doesn’t exist.</p>
 </div>
 <p>If we try to ingest again, it’ll fail, because the table already
 exists.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">63</span><span class="k">with</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cur</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">63</span><span class="k">with</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cur</span><span class="p">:</span>
 <span class="linenos">64</span>    <span class="k">try</span><span class="p">:</span>
 <span class="linenos">65</span>        <span class="n">cur</span><span class="o">.</span><span class="n">adbc_ingest</span><span class="p">(</span><span class="s2">&quot;example&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;create&quot;</span><span class="p">)</span>
-<span class="linenos">66</span>    <span class="k">except</span> <span class="n">conn</span><span class="o">.</span><span class="n">OperationalError</span><span class="p">:</span>
+<span class="linenos">66</span>    <span class="k">except</span> <span class="n">conn</span><span class="o">.</span><span class="n">ProgrammingError</span><span class="p">:</span>
 <span class="linenos">67</span>        <span class="k">pass</span>
 <span class="linenos">68</span>    <span class="k">else</span><span class="p">:</span>
 <span class="linenos">69</span>        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Should have failed!&quot;</span><span class="p">)</span>
+<span class="linenos">70</span>
+<span class="linenos">71</span><span class="n">conn</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Instead, we can append to the table.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">72</span><span class="k">with</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cur</span><span class="p">:</span>
-<span class="linenos">73</span>    <span class="n">cur</span><span class="o">.</span><span class="n">adbc_ingest</span><span class="p">(</span><span class="s2">&quot;example&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;append&quot;</span><span class="p">)</span>
-<span class="linenos">74</span>
-<span class="linenos">75</span>    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT COUNT(*) FROM example&quot;</span><span class="p">)</span>
-<span class="linenos">76</span>    <span class="k">assert</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span> <span class="o">==</span> <span class="p">(</span><span class="mi">8</span><span class="p">,)</span>
-<span class="linenos">77</span>
-<span class="linenos">78</span><span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">74</span><span class="k">with</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cur</span><span class="p">:</span>
+<span class="linenos">75</span>    <span class="n">cur</span><span class="o">.</span><span class="n">adbc_ingest</span><span class="p">(</span><span class="s2">&quot;example&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;append&quot;</span><span class="p">)</span>
+<span class="linenos">76</span>
+<span class="linenos">77</span>    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT COUNT(*) FROM example&quot;</span><span class="p">)</span>
+<span class="linenos">78</span>    <span class="k">assert</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span> <span class="o">==</span> <span class="p">(</span><span class="mi">8</span><span class="p">,)</span>
+<span class="linenos">79</span>
+<span class="linenos">80</span><span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
@@ -421,7 +432,7 @@ exists.</p>
 <p>ADBC allows using Python and Arrow values as bind parameters.
 Right now, the PostgreSQL driver only supports bind parameters
 for queries that don’t generate result sets.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">24</span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">24</span><span class="kn">import</span> <span class="nn">os</span>
 <span class="linenos">25</span>
 <span class="linenos">26</span><span class="kn">import</span> <span class="nn">pyarrow</span>
 <span class="linenos">27</span>
@@ -432,7 +443,7 @@ for queries that don’t generate result sets.</p>
 </pre></div>
 </div>
 <p>We’ll create an example table to test.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">34</span><span class="k">with</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cur</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">34</span><span class="k">with</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cur</span><span class="p">:</span>
 <span class="linenos">35</span>    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;DROP TABLE IF EXISTS example&quot;</span><span class="p">)</span>
 <span class="linenos">36</span>    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;CREATE TABLE example (ints INT, bigints BIGINT)&quot;</span><span class="p">)</span>
 <span class="linenos">37</span>
@@ -440,7 +451,7 @@ for queries that don’t generate result sets.</p>
 </pre></div>
 </div>
 <p>We can bind Python values:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">41</span><span class="k">with</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cur</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">41</span><span class="k">with</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cur</span><span class="p">:</span>
 <span class="linenos">42</span>    <span class="n">cur</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s2">&quot;INSERT INTO example VALUES ($1, $2)&quot;</span><span class="p">,</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)])</span>
 <span class="linenos">43</span>
 <span class="linenos">44</span>    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT SUM(ints) FROM example&quot;</span><span class="p">)</span>
@@ -454,7 +465,7 @@ libraries like psycopg use for bind parameters, note that this
 is not supported—only the PostgreSQL-native <code class="docutils literal notranslate"><span class="pre">$1</span></code> syntax.</p>
 </div>
 <p>We can also bind Arrow values:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">52</span><span class="k">with</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cur</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">52</span><span class="k">with</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cur</span><span class="p">:</span>
 <span class="linenos">53</span>    <span class="n">data</span> <span class="o">=</span> <span class="n">pyarrow</span><span class="o">.</span><span class="n">record_batch</span><span class="p">(</span>
 <span class="linenos">54</span>        <span class="p">[</span>
 <span class="linenos">55</span>            <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
@@ -475,7 +486,7 @@ is not supported—only the PostgreSQL-native <code class="docutils literal notr
 <h2>Get the Arrow schema of a table<a class="headerlink" href="#get-the-arrow-schema-of-a-table" title="Permalink to this heading">#</a></h2>
 <p>Recipe source: <a class="reference external" href="https://github.com/apache/arrow-adbc/blob/main/docs/source/python/recipe/postgresql_get_table_schema.py">postgresql_get_table_schema.py</a></p>
 <p>ADBC lets you get the schema of a table as an Arrow schema.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">22</span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">22</span><span class="kn">import</span> <span class="nn">os</span>
 <span class="linenos">23</span>
 <span class="linenos">24</span><span class="kn">import</span> <span class="nn">pyarrow</span>
 <span class="linenos">25</span>
@@ -486,7 +497,7 @@ is not supported—only the PostgreSQL-native <code class="docutils literal notr
 </pre></div>
 </div>
 <p>We’ll create an example table to test.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">32</span><span class="k">with</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cur</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">32</span><span class="k">with</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cur</span><span class="p">:</span>
 <span class="linenos">33</span>    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;DROP TABLE IF EXISTS example&quot;</span><span class="p">)</span>
 <span class="linenos">34</span>    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;CREATE TABLE example (ints INT, bigints BIGINT)&quot;</span><span class="p">)</span>
 <span class="linenos">35</span>
@@ -507,7 +518,7 @@ is not supported—only the PostgreSQL-native <code class="docutils literal notr
 <h2>List catalogs, schemas, and tables<a class="headerlink" href="#list-catalogs-schemas-and-tables" title="Permalink to this heading">#</a></h2>
 <p>Recipe source: <a class="reference external" href="https://github.com/apache/arrow-adbc/blob/main/docs/source/python/recipe/postgresql_list_catalogs.py">postgresql_list_catalogs.py</a></p>
 <p>ADBC allows listing tables, catalogs, and schemas in the database.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">22</span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">22</span><span class="kn">import</span> <span class="nn">os</span>
 <span class="linenos">23</span>
 <span class="linenos">24</span><span class="kn">import</span> <span class="nn">adbc_driver_postgresql.dbapi</span>
 <span class="linenos">25</span>
@@ -516,7 +527,7 @@ is not supported—only the PostgreSQL-native <code class="docutils literal notr
 </pre></div>
 </div>
 <p>We’ll create an example table to look for.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">30</span><span class="k">with</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cur</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">30</span><span class="k">with</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cur</span><span class="p">:</span>
 <span class="linenos">31</span>    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;DROP TABLE IF EXISTS example&quot;</span><span class="p">)</span>
 <span class="linenos">32</span>    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;CREATE TABLE example (ints INT, bigints BIGINT)&quot;</span><span class="p">)</span>
 <span class="linenos">33</span>
@@ -524,11 +535,11 @@ is not supported—only the PostgreSQL-native <code class="docutils literal notr
 </pre></div>
 </div>
 <p>The data is given as a PyArrow RecordBatchReader.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">37</span><span class="n">objects</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">adbc_get_objects</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read_all</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">37</span><span class="n">objects</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">adbc_get_objects</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read_all</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>We’ll convert it to plain Python data for convenience.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">40</span><span class="n">objects</span> <span class="o">=</span> <span class="n">objects</span><span class="o">.</span><span class="n">to_pylist</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">40</span><span class="n">objects</span> <span class="o">=</span> <span class="n">objects</span><span class="o">.</span><span class="n">to_pylist</span><span class="p">()</span>
 <span class="linenos">41</span><span class="n">catalog</span> <span class="o">=</span> <span class="n">objects</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="linenos">42</span><span class="k">assert</span> <span class="n">catalog</span><span class="p">[</span><span class="s2">&quot;catalog_name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;postgres&quot;</span>
 <span class="linenos">43</span>
@@ -554,12 +565,12 @@ is not supported—only the PostgreSQL-native <code class="docutils literal notr
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../../driver/installation.html">
+          <a class="next-page" href="../../r/index.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Installation</div>
+                <div class="title">R</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -622,9 +633,6 @@ is not supported—only the PostgreSQL-native <code class="docutils literal notr
     </aside>
   </div>
 </div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/scripts/furo.js"></script>

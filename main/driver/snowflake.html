@@ -7,10 +7,10 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="SQLite Driver" href="sqlite.html" /><link rel="prev" title="PostgreSQL Driver" href="postgresql.html" />
 
-    <!-- Generated with Sphinx 5.3.0 and Furo 2023.05.20 -->
-        <title>Snowflake Driver - ADBC 0.5.0 (dev) documentation</title>
+    <!-- Generated with Sphinx 6.2.1 and Furo 2023.07.26 -->
+        <title>Snowflake Driver - ADBC 0.9.0 (dev) documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=369552022d0b975c8e74270ce6eabe0fb7978f24" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -41,7 +41,7 @@
   }
 </style>
 <script>
-  const currentVersion = "0.5.0 (dev)";
+  const currentVersion = "0.9.0 (dev)";
   const versionsRoot = "../..";
 </script>
 <style>
@@ -96,7 +96,7 @@
     </script>
     
 <nav id="version-switcher">
-  <button type="button" onclick="document.getElementById('version-switcher').classList.toggle('open')">Version: 0.5.0 (dev)</button>
+  <button type="button" onclick="document.getElementById('version-switcher').classList.toggle('open')">Version: 0.9.0 (dev)</button>
   <div class="versions">
     <ul></ul>
   </div>
@@ -183,7 +183,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">ADBC 0.5.0 (dev) documentation</div></a>
+      <a href="../index.html"><div class="brand">ADBC 0.9.0 (dev) documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -210,7 +210,7 @@
     <img class="sidebar-logo only-dark" src="../_static/logo-dark.png" alt="Dark Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">ADBC 0.5.0 (dev) documentation</span>
+  <span class="sidebar-brand-text">ADBC 0.9.0 (dev) documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -224,6 +224,7 @@
 <p class="caption" role="heading"><span class="caption-text">Supported Environments</span></p>
 <ul>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../cpp/index.html">C/C++</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of C/C++</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cpp/quickstart.html">Quickstart</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cpp/driver_manager.html">Driver Manager</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cpp/concurrency.html">Concurrency and Thread Safety</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../cpp/api/index.html">C/C++ API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of C/C++ API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -234,31 +235,39 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://pkg.go.dev/github.com/apache/arrow-adbc/go/adbc">Go</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../java/index.html">Java</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Java</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../java/index.html">Java</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Java</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../java/quickstart.html">Quickstart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../java/driver_manager.html">Driver Manager</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../java/api/index.html">Java API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Java API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../java/api/adbc_driver_manager.html"><code class="docutils literal notranslate"><span class="pre">Java</span> <span class="pre">ADBC</span> <span class="pre">Driver</span> <span class="pre">Manager</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../python/index.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Python</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../python/index.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Python</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../python/quickstart.html">Quickstart</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python/driver_manager.html">Driver Manager</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../python/api/index.html">Python API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Python API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../python/api/index.html">Python API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Python API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../python/api/adbc_driver_manager.html"><code class="docutils literal notranslate"><span class="pre">adbc_driver_manager</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../python/api/adbc_driver_flightsql.html"><code class="docutils literal notranslate"><span class="pre">adbc_driver_flightsql</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../python/api/adbc_driver_postgresql.html"><code class="docutils literal notranslate"><span class="pre">adbc_driver_postgresql</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../python/api/adbc_driver_sqlite.html"><code class="docutils literal notranslate"><span class="pre">adbc_driver_sqlite</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../python/recipe/index.html">Python Cookbook</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Python Cookbook</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../python/recipe/index.html">Python Cookbook</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Python Cookbook</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../python/recipe/driver_manager.html">Driver Manager Recipes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../python/recipe/postgresql.html">PostgreSQL Recipes</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../r/index.html">R</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Drivers</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="status.html">Driver Implementation Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="duckdb.html">DuckDB Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="flight_sql.html">Flight SQL Driver</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jdbc.html">JDBC Adapter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Driver</a></li>
@@ -354,9 +363,8 @@ pip<span class="w"> </span>install<span class="w"> </span>adbc_driver_snowflake
 <input id="sd-tab-item-3" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" data-sync-id="r" for="sd-tab-item-3">
 R</label><div class="sd-tab-content docutils">
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># install.packages(&quot;remotes&quot;)</span>
-remotes::install_github<span class="o">(</span><span class="s2">&quot;apache/arrow-adbc/r/adbcdrivermanager&quot;</span>,<span class="w"> </span><span class="nv">build</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>FALSE<span class="o">)</span>
-remotes::install_github<span class="o">(</span><span class="s2">&quot;apache/arrow-adbc/r/adbcsnowflake&quot;</span>,<span class="w"> </span><span class="nv">build</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>FALSE<span class="o">)</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># install.packages(&quot;pak&quot;)</span>
+pak::pak<span class="o">(</span><span class="s2">&quot;apache/arrow-adbc/r/adbcsnowflake&quot;</span><span class="o">)</span>
 </pre></div>
 </div>
 </div>
@@ -403,6 +411,34 @@ R</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
+<input id="sd-tab-item-7" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" data-sync-id="go" for="sd-tab-item-7">
+Go</label><div class="sd-tab-content docutils">
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">   </span><span class="s">&quot;context&quot;</span>
+
+<span class="w">   </span><span class="s">&quot;github.com/apache/arrow-adbc/go/adbc&quot;</span>
+<span class="w">   </span><span class="s">&quot;github.com/apache/arrow-adbc/go/adbc/driver/snowflake&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="kd">var</span><span class="w"> </span><span class="nx">drv</span><span class="w"> </span><span class="nx">snowflake</span><span class="p">.</span><span class="nx">Driver</span>
+<span class="w">   </span><span class="nx">db</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">drv</span><span class="p">.</span><span class="nx">NewDatabase</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span>
+<span class="w">       </span><span class="nx">adbc</span><span class="p">.</span><span class="nx">OptionKeyURI</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;snowflake uri&gt;&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="p">})</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">       </span><span class="c1">// handle error</span>
+<span class="w">   </span><span class="p">}</span>
+
+<span class="w">   </span><span class="nx">cnxn</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">Open</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">())</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">       </span><span class="c1">// handle error</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="w">   </span><span class="k">defer</span><span class="w"> </span><span class="nx">cnxn</span><span class="p">.</span><span class="nx">Close</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
 </div>
 <section id="uri-format">
 <h3>URI Format<a class="headerlink" href="#uri-format" title="Permalink to this heading">#</a></h3>
@@ -430,7 +466,87 @@ it will attempt to use Username/Password authentication. The username and
 password can be provided in the URI or via the <code class="docutils literal notranslate"><span class="pre">username</span></code> and <code class="docutils literal notranslate"><span class="pre">password</span></code>
 options to the <a class="reference internal" href="../cpp/api/adbc.html#_CPPv412AdbcDatabase" title="AdbcDatabase"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">AdbcDatabase</span></code></a>.</p>
 <p>Alternately, other types of authentication can be specified and customized.
-See “Client Options” below.</p>
+See “Client Options” below for details on all the options.</p>
+<section id="sso-authentication">
+<h4>SSO Authentication<a class="headerlink" href="#sso-authentication" title="Permalink to this heading">#</a></h4>
+<p>Snowflake supports <a class="reference external" href="https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-overview">single sign-on</a>.
+If your account has been configured with SSO, it can be used with the
+Snowflake driver by setting the following options when constructing the
+<a class="reference internal" href="../cpp/api/adbc.html#_CPPv412AdbcDatabase" title="AdbcDatabase"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">AdbcDatabase</span></code></a>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">adbc.snowflake.sql.account</span></code>: your Snowflake account.  (For example, if
+you log in to <code class="docutils literal notranslate"><span class="pre">https://foobar.snowflakecomputing.com</span></code>, then your account
+identifier is <code class="docutils literal notranslate"><span class="pre">foobar</span></code>.)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">adbc.snowflake.sql.auth_type</span></code>: <code class="docutils literal notranslate"><span class="pre">auth_ext_browser</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">username</span></code>: your username.  (This should probably be your email,
+e.g. <code class="docutils literal notranslate"><span class="pre">jdoe&#64;example.com</span></code>.)</p></li>
+</ul>
+<p>A new browser tab or window should appear where you can continue the login.
+Once this is complete, you will have a complete ADBC database/connection
+object.  Some users have reported needing other configuration options, such as
+<code class="docutils literal notranslate"><span class="pre">adbc.snowflake.sql.region</span></code> and <code class="docutils literal notranslate"><span class="pre">adbc.snowflake.sql.uri.*</span></code> (see below for
+a listing).</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-8" name="sd-tab-set-2" type="radio">
+</input><label class="sd-tab-label" data-sync-id="python" for="sd-tab-item-8">
+Python</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">adbc_driver_snowflake.dbapi</span>
+<span class="c1"># This will open a new browser tab, and block until you log in.</span>
+<span class="n">adbc_driver_snowflake</span><span class="o">.</span><span class="n">dbapi</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_kwargs</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;adbc.snowflake.sql.account&quot;</span><span class="p">:</span> <span class="s2">&quot;foobar&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;adbc.snowflake.sql.auth_type&quot;</span><span class="p">:</span> <span class="s2">&quot;auth_ext_browser&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;jdoe@example.com&quot;</span><span class="p">,</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-9" name="sd-tab-set-2" type="radio">
+</input><label class="sd-tab-label" data-sync-id="r" for="sd-tab-item-9">
+R</label><div class="sd-tab-content docutils">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">adbcdrivermanager</span><span class="p">)</span>
+<span class="n">db</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">adbc_database_init</span><span class="p">(</span>
+<span class="w">  </span><span class="n">adbcsnowflake</span><span class="o">::</span><span class="nf">adbcsnowflake</span><span class="p">(),</span>
+<span class="w">  </span><span class="n">adbc.snowflake.sql.account</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;foobar&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">adbc.snowflake.sql.auth_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;auth_ext_browser&#39;</span>
+<span class="w">  </span><span class="n">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;jdoe@example.com&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="c1"># This will open a new browser tab, and block until you log in.</span>
+<span class="n">con</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">adbc_connection_init</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-10" name="sd-tab-set-2" type="radio">
+</input><label class="sd-tab-label" data-sync-id="go" for="sd-tab-item-10">
+Go</label><div class="sd-tab-content docutils">
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">   </span><span class="s">&quot;context&quot;</span>
+
+<span class="w">   </span><span class="s">&quot;github.com/apache/arrow-adbc/go/adbc&quot;</span>
+<span class="w">   </span><span class="s">&quot;github.com/apache/arrow-adbc/go/adbc/driver/snowflake&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="kd">var</span><span class="w"> </span><span class="nx">drv</span><span class="w"> </span><span class="nx">snowflake</span><span class="p">.</span><span class="nx">Driver</span>
+<span class="w">   </span><span class="nx">db</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">drv</span><span class="p">.</span><span class="nx">NewDatabase</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span>
+<span class="w">       </span><span class="nx">snowflake</span><span class="p">.</span><span class="nx">OptionAccount</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;foobar&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="nx">snowflake</span><span class="p">.</span><span class="nx">OptionAuthType</span><span class="p">:</span><span class="w"> </span><span class="nx">snowflake</span><span class="p">.</span><span class="nx">OptionValueAuthExternalBrowser</span><span class="p">,</span>
+<span class="w">       </span><span class="nx">adbc</span><span class="p">.</span><span class="nx">OptionKeyUsername</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;jdoe@example.com&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="p">})</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">       </span><span class="c1">// handle error</span>
+<span class="w">   </span><span class="p">}</span>
+
+<span class="w">   </span><span class="nx">cnxn</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">Open</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">())</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">       </span><span class="c1">// handle error</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="w">   </span><span class="k">defer</span><span class="w"> </span><span class="nx">cnxn</span><span class="p">.</span><span class="nx">Close</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="bulk-ingestion">
 <h3>Bulk Ingestion<a class="headerlink" href="#bulk-ingestion" title="Permalink to this heading">#</a></h3>
@@ -457,16 +573,22 @@ to the snowflake database.</p>
 <p>In addition, the current database and schema for the session must be set. If
 these are not set, the <code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">TEMPORARY</span> <span class="pre">STAGE</span></code> command executed by the driver
 can fail with the following error:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>CREATE TEMPORARY STAGE SYSTEM$BIND file_format=(type=csv field_optionally_enclosed_by=&#39;&quot;&#39;)
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>CREATE TEMPORARY STAGE SYSTEM$BIND file_format=(type=csv field_optionally_enclosed_by=&#39;&quot;&#39;)
 CANNOT perform CREATE STAGE. This session does not have a current schema. Call &#39;USE SCHEMA&#39; or use a qualified name.
 </pre></div>
 </div>
 <p>In addition, results are potentially fetched in parallel from multiple endpoints.
 A limited number of batches are queued per endpoint, though data is always
 returned to the client in the order of the endpoints.</p>
-<p>The queue size can be changed by setting an option on the <a class="reference internal" href="../cpp/api/adbc.html#_CPPv413AdbcStatement" title="AdbcStatement"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">AdbcStatement</span></code></a>:</p>
+<p>To manage the performance of result fetching there are two options to control
+buffering and concurrency behavior. These options are only available to be set
+on the <a class="reference internal" href="../cpp/api/adbc.html#_CPPv413AdbcStatement" title="AdbcStatement"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">AdbcStatement</span></code></a> object:</p>
 <dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">adbc.rpc.result_queue_size</span></code></dt><dd><p>The number of batches to queue per endpoint. Defaults to 5.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">adbc.rpc.result_queue_size</span></code></dt><dd><p>The number of batches to queue in the record reader. Defaults to 200.
+Must be an integer &gt; 0.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">adbc.snowflake.rpc.prefetch_concurrency</span></code></dt><dd><p>The number of concurrent streams being fetched from snowflake at a time.
+Defaults to 10. Must be an integer &gt; 0.</p>
 </dd>
 </dl>
 </section>
@@ -551,6 +673,13 @@ authentication. This should be a path to a file containing a PKCS1
 private key to be read in and parsed. Commonly encoded in PEM blocks
 of type “RSA PRIVATE KEY”.</p>
 </dd>
+<dt><code class="docutils literal notranslate"><span class="pre">adbc.snowflake.sql.client_option.jwt_private_key_pkcs8_value</span></code></dt><dd><p>Parses an encrypted or unencrypted PKCS #8 private key without having to
+read it from the file system. If using encrypted, the
+<code class="docutils literal notranslate"><span class="pre">adbc.snowflake.sql.client_option.jwt_private_key_pkcs8_password</span></code> value
+is required and used to decrypt.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">adbc.snowflake.sql.client_option.jwt_private_key_pkcs8_password</span></code></dt><dd><p>Passcode to use when passing an encrypted PKCS #8 value.</p>
+</dd>
 <dt><code class="docutils literal notranslate"><span class="pre">adbc.snowflake.sql.client_option.disable_telemetry</span></code></dt><dd><p>The Snowflake driver allows for telemetry information which can be
 disabled by setting this to <code class="docutils literal notranslate"><span class="pre">true</span></code>. Value should be either <code class="docutils literal notranslate"><span class="pre">true</span></code>
 or <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
@@ -563,11 +692,18 @@ to <code class="docutils literal notranslate"><span class="pre">true</span></cod
 <dt><code class="docutils literal notranslate"><span class="pre">adbc.snowflake.sql.client_option.store_temp_creds</span></code></dt><dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the ID token is cached in the credential manager. Defaults
 to <code class="docutils literal notranslate"><span class="pre">true</span></code> on Windows/OSX, <code class="docutils literal notranslate"><span class="pre">false</span></code> on Linux.</p>
 </dd>
+<dt><code class="docutils literal notranslate"><span class="pre">adbc.snowflake.sql.client_option.use_high_precision</span></code></dt><dd><p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>, fixed-point snowflake columns with the type <code class="docutils literal notranslate"><span class="pre">NUMBER</span></code>
+will be returned as <code class="docutils literal notranslate"><span class="pre">Decimal128</span></code> type Arrow columns using the precision
+and scale of the <code class="docutils literal notranslate"><span class="pre">NUMBER</span></code> type. When <code class="docutils literal notranslate"><span class="pre">false</span></code>, <code class="docutils literal notranslate"><span class="pre">NUMBER</span></code> columns
+with a scale of 0 will be returned as <code class="docutils literal notranslate"><span class="pre">Int64</span></code> typed Arrow columns and
+non-zero scaled columns will be returned as <code class="docutils literal notranslate"><span class="pre">Float64</span></code> typed Arrow columns.
+The default is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+</dd>
 </dl>
 </section>
 <section id="metadata">
 <h3>Metadata<a class="headerlink" href="#metadata" title="Permalink to this heading">#</a></h3>
-<p>When calling <a class="reference internal" href="../cpp/api/adbc.html#_CPPv428AdbcConnectionGetTableSchemaP14AdbcConnectionPKcPKcPKcP11ArrowSchemaP9AdbcError" title="AdbcConnectionGetTableSchema"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AdbcConnectionGetTableSchema()</span></code></a>, the returned Arrow Schema
+<p>When calling <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AdbcConnectionGetTableSchema()</span></code>, the returned Arrow Schema
 will contain metadata on each field:</p>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">DATA_TYPE</span></code></dt><dd><p>This will be a string containing the raw Snowflake data type of this column</p>
@@ -728,7 +864,10 @@ Snowflake provides.</p></td>
 </ul>
 </li>
 <li><a class="reference internal" href="#supported-features">Supported Features</a><ul>
-<li><a class="reference internal" href="#authentication">Authentication</a></li>
+<li><a class="reference internal" href="#authentication">Authentication</a><ul>
+<li><a class="reference internal" href="#sso-authentication">SSO Authentication</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#bulk-ingestion">Bulk Ingestion</a></li>
 <li><a class="reference internal" href="#partitioned-result-sets">Partitioned Result Sets</a></li>
 <li><a class="reference internal" href="#performance">Performance</a></li>
@@ -750,9 +889,6 @@ Snowflake provides.</p></td>
     </aside>
   </div>
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/furo.js"></script>
