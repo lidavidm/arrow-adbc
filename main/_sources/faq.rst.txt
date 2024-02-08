@@ -30,7 +30,7 @@ ADBC is:
   For example, result sets of queries in ADBC are all returned as
   streams of Arrow data, not row-by-row.
 - A set of implementations of that API in different languages (C/C++,
-  Go, Java, Python, and Ruby) that target different databases
+  C#/.NET, Go, Java, Python, and Ruby) that target different databases
   (e.g. PostgreSQL, SQLite, any database supporting Flight SQL).
 
 Why not just use JDBC/ODBC?
@@ -155,9 +155,7 @@ result set as Arrow data.  In that respect, it's like JDBC.  (ODBC has
 a "standard" SQL dialect it defines; ADBC does not do this.)
 
 For a project that does try to tackle the problem of defining a
-vendor-independent query language, see Substrait_.
-
-.. _Substrait: https://substrait.io/
+vendor-independent query language, see :term:`Substrait`.
 
 When is the next release?
 =========================
