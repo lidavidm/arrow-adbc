@@ -14,7 +14,13 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
-
-utils.c
-utils.h
-options.h
+base.h
+base_connection.h
+base_database.h
+base_statement.h
+catalog.h
+objects.h
+status.h
+type_fwd.h
+catalog.cc
+objects.cc

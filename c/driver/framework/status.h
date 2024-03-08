@@ -1,0 +1,257 @@
+// Licensed to the Apache Software Foundation (ASF) under one
+// or more contributor license agreements.  See the NOTICE file
+// distributed with this work for additional information
+// regarding copyright ownership.  The ASF licenses this file
+// to you under the Apache License, Version 2.0 (the
+// "License"); you may not use this file except in compliance
+// with the License.  You may obtain a copy of the License at
+//
+//   http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing,
+// software distributed under the License is distributed on an
+// "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+// KIND, either express or implied.  See the License for the
+// specific language governing permissions and limitations
+// under the License.
+
+#pragma once
+
+#include <cassert>
+#include <cstring>
+#include <string>
+#include <utility>
+#include <variant>
+#include <vector>
+
+#include <adbc.h>
+#include <fmt/core.h>
+
+/// \file status.h
+
+namespace adbc::driver {
+
+/// \brief A wrapper around AdbcStatusCode + AdbcError.
+///
+/// Drivers should prefer to use Status, and convert at the boundaries with
+/// ToAdbc.
+class Status {
+ public:
+  /// \brief Construct an OK status.
+  Status() : code_(ADBC_STATUS_OK) {}
+
+  /// \brief Construct a non-OK status with a message.
+  explicit Status(AdbcStatusCode code, std::string message)
+      : Status(code, std::move(message), {}) {}
+
+  /// \brief Construct a non-OK status with a message.
+  explicit Status(AdbcStatusCode code, const char* message)
+      : Status(code, std::string(message), {}) {}
+
+  /// \brief Construct a non-OK status with a message and details.
+  explicit Status(AdbcStatusCode code, std::string message,
+                  std::vector<std::pair<std::string, std::string>> details)
+      : code_(code), message_(std::move(message)), details_(std::move(details)) {
+    assert(code != ADBC_STATUS_OK);
+    std::memset(sql_state_, 0, sizeof(sql_state_));
+  }
+
+  bool ok() const { return code_ == ADBC_STATUS_OK; }
+
+  /// \brief Add another error detail.
+  void AddDetail(std::string key, std::string value) {
+    details_.push_back({std::move(key), std::move(value)});
+  }
+
+  /// \brief Export this status to an AdbcError.
+  AdbcStatusCode ToAdbc(AdbcError* adbc_error) {
+    if (adbc_error == nullptr || code_ == ADBC_STATUS_OK) return code_;
+
+    if (adbc_error->release) {
+      adbc_error->release(adbc_error);
+    }
+
+    if (adbc_error->vendor_code == ADBC_ERROR_VENDOR_CODE_PRIVATE_DATA) {
+      auto error_owned_by_adbc_error =
+          new Status(code_, std::move(message_), std::move(details_));
+      adbc_error->message =
+          const_cast<char*>(error_owned_by_adbc_error->message_.c_str());
+      adbc_error->private_data = error_owned_by_adbc_error;
+    } else {
+      // TODO: use new/delete not malloc/free
+      adbc_error->message = reinterpret_cast<char*>(std::malloc(message_.size() + 1));
+      if (adbc_error->message != nullptr) {
+        std::memcpy(adbc_error->message, message_.c_str(), message_.size() + 1);
+      }
+    }
+
+    std::memcpy(adbc_error->sqlstate, sql_state_, sizeof(sql_state_));
+    adbc_error->release = &CRelease;
+    return code_;
+  }
+
+  static Status FromAdbc(AdbcStatusCode code, AdbcError& error) {
+    // not really meant to be used, just something we have for now while porting
+    if (code == ADBC_STATUS_OK) {
+      if (error.release) {
+        error.release(&error);
+      }
+      return Status();
+    }
+    auto status = Status(code, error.message ? error.message : "(unknown error)");
+    if (error.release) {
+      error.release(&error);
+    }
+    return status;
+  }
+
+ private:
+  AdbcStatusCode code_;
+  // TODO: could reduce size by pimpling
+  std::string message_;
+  std::vector<std::pair<std::string, std::string>> details_;
+  char sql_state_[5];
+
+  // Let the Driver use these to expose C callables wrapping option setters/getters
+  template <typename DatabaseT, typename ConnectionT, typename StatementT>
+  friend class Driver;
+
+  int CDetailCount() const { return details_.size(); }
+
+  AdbcErrorDetail CDetail(int index) const {
+    const auto& detail = details_[index];
+    return {detail.first.c_str(), reinterpret_cast<const uint8_t*>(detail.second.data()),
+            detail.second.size() + 1};
+  }
+
+  static void CRelease(AdbcError* error) {
+    if (error->vendor_code == ADBC_ERROR_VENDOR_CODE_PRIVATE_DATA) {
+      auto* error_obj = reinterpret_cast<Status*>(error->private_data);
+      delete error_obj;
+      std::memset(error, 0, ADBC_ERROR_1_1_0_SIZE);
+    } else {
+      std::free(error->message);
+      std::memset(error, 0, ADBC_ERROR_1_0_0_SIZE);
+    }
+  }
+};
+
+/// \brief
+///
+/// We could probably do better by using a library like std::expected, but
+/// this will suffice for now.  There doesn't seem to be a reasonably
+/// maintained std::expected backport.
+template <typename T>
+class Result {
+ public:
+  Result(Status s)  // NOLINT(runtime/explicit)
+      : value_(std::move(s)) {
+    assert(!s.ok());
+  }
+  // TODO: taken from upstream, document/explain this
+  template <typename U,
+            typename E = typename std::enable_if<
+                std::is_constructible<T, U>::value && std::is_convertible<U, T>::value &&
+                !std::is_same<typename std::remove_reference<
+                                  typename std::remove_cv<U>::type>::type,
+                              Status>::value>::type>
+  Result(U&& t) : value_(std::forward<U>(t)) {}  // NOLINT(runtime/explicit)
+
+  bool has_value() const { return !std::holds_alternative<Status>(value_); }
+  Status status() const {
+    assert(std::holds_alternative<Status>(value_));
+    return std::get<Status>(value_);
+  }
+  T& value() {
+    assert(!std::holds_alternative<Status>(value_));
+    return std::get<T>(value_);
+  }
+
+ private:
+  std::variant<Status, T> value_;
+};
+
+#define RAISE_RESULT_IMPL(NAME, ERROR, LHS, RHS) \
+  auto&& NAME = (RHS);                           \
+  if (!(NAME).has_value()) {                     \
+    return (NAME).status().ToAdbc(ERROR);        \
+  }                                              \
+  LHS = std::move((NAME).value());
+
+#define RAISE_STATUS_IMPL(NAME, ERROR, RHS) \
+  auto&& NAME = (RHS);                      \
+  if (!(NAME).ok()) {                       \
+    return (NAME).ToAdbc(ERROR);            \
+  }
+
+#define UNWRAP_RESULT_IMPL(name, lhs, rhs) \
+  auto&& name = (rhs);                     \
+  if (!(name).has_value()) {               \
+    return (name).status();                \
+  }                                        \
+  lhs = std::move((name).value());
+
+#define UNWRAP_STATUS_IMPL(name, rhs) \
+  auto&& name = (rhs);                \
+  if (!(name).ok()) {                 \
+    return (name);                    \
+  }
+
+#define DRIVER_CONCAT(x, y) x##y
+#define UNWRAP_RESULT_NAME(x, y) DRIVER_CONCAT(x, y)
+
+#define RAISE_RESULT(ERROR, LHS, RHS) \
+  RAISE_RESULT_IMPL(UNWRAP_RESULT_NAME(driver_raise_result, __COUNTER__), ERROR, LHS, RHS)
+#define RAISE_STATUS(ERROR, RHS) \
+  RAISE_STATUS_IMPL(UNWRAP_RESULT_NAME(driver_raise_status, __COUNTER__), ERROR, RHS)
+#define UNWRAP_RESULT(lhs, rhs) \
+  UNWRAP_RESULT_IMPL(UNWRAP_RESULT_NAME(driver_unwrap_result, __COUNTER__), lhs, rhs)
+#define UNWRAP_STATUS(rhs) \
+  UNWRAP_STATUS_IMPL(UNWRAP_RESULT_NAME(driver_unwrap_status, __COUNTER__), rhs)
+
+}  // namespace adbc::driver
+
+namespace adbc::driver::status {
+
+#define STATUS_CTOR(NAME, CODE)                                                 \
+  template <typename... Args>                                                   \
+  static Status NAME(std::string_view format_string, Args&&... args) {          \
+    auto message = fmt::vformat(format_string, fmt::make_format_args(args...)); \
+    return Status(ADBC_STATUS_##CODE, std::move(message));                      \
+  }
+
+// TODO: unit tests for internal utilities
+STATUS_CTOR(Internal, INTERNAL)
+STATUS_CTOR(InvalidArgument, INVALID_ARGUMENT)
+STATUS_CTOR(InvalidState, INVALID_STATE)
+STATUS_CTOR(IO, IO)
+STATUS_CTOR(NotFound, NOT_FOUND)
+STATUS_CTOR(NotImplemented, NOT_IMPLEMENTED)
+STATUS_CTOR(Unknown, UNKNOWN)
+
+#undef STATUS_CTOR
+
+static inline driver::Status kOk;
+
+#define UNWRAP_ERRNO_IMPL(NAME, CODE, RHS)                                               \
+  auto&& NAME = (RHS);                                                                   \
+  if (NAME != 0) {                                                                       \
+    return adbc::driver::status::CODE("Nanoarrow call failed: {} = ({}) {}", #RHS, NAME, \
+                                      std::strerror(NAME));                              \
+  }
+
+#define UNWRAP_ERRNO(CODE, RHS) \
+  UNWRAP_ERRNO_IMPL(UNWRAP_RESULT_NAME(driver_errno, __COUNTER__), CODE, RHS)
+
+#define UNWRAP_NANOARROW_IMPL(NAME, ERROR, CODE, RHS)                                  \
+  auto&& NAME = (RHS);                                                                 \
+  if (NAME != 0) {                                                                     \
+    return adbc::driver::status::CODE("Nanoarrow call failed: {} = ({}) {}. {}", #RHS, \
+                                      NAME, std::strerror(NAME), (ERROR).message);     \
+  }
+
+#define UNWRAP_NANOARROW(ERROR, CODE, RHS)                                             \
+  UNWRAP_NANOARROW_IMPL(UNWRAP_RESULT_NAME(driver_errno_na, __COUNTER__), ERROR, CODE, \
+                        RHS)
+
+}  // namespace adbc::driver::status
