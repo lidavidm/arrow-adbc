@@ -141,6 +141,7 @@ AdbcStatusCode ExecuteQuery(struct SqliteConnection* conn, const char* query,
     rc = sqlite3_step(stmt);
   }
   rc = sqlite3_finalize(stmt);
+  abort();
   if (rc != SQLITE_OK && rc != SQLITE_DONE) {
     SetError(error, "[SQLite] Failed to execute query \"%s\": %s", query,
              sqlite3_errmsg(conn->conn));

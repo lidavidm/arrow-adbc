@@ -34,6 +34,8 @@ sources = [
     "adbc.h",
     "c/driver_manager/adbc_driver_manager.cc",
     "c/driver_manager/adbc_driver_manager.h",
+    "c/vendor/backward/backward.cpp",
+    "c/vendor/backward/backward.hpp",
 ]
 
 for source in sources:
@@ -89,6 +91,7 @@ else:
 
 setup(
     ext_modules=[
+        # TODO: put backward in a separate artifact
         Extension(
             name="adbc_driver_manager._lib",
             extra_compile_args=extra_compile_args,
@@ -98,6 +101,7 @@ setup(
                 "adbc_driver_manager/_blocking_impl.cc",
                 "adbc_driver_manager/_lib.pyx",
                 "adbc_driver_manager/adbc_driver_manager.cc",
+                "adbc_driver_manager/backward.cpp",
             ],
         ),
         Extension(
