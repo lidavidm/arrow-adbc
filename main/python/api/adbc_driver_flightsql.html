@@ -16,7 +16,7 @@
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="adbc_driver_postgresql" href="adbc_driver_postgresql.html" /><link rel="prev" title="adbc_driver_manager" href="adbc_driver_manager.html" />
 
     <!-- Generated with Sphinx 6.2.1 and Furo 2024.01.29 -->
-        <title>adbc_driver_flightsql - ADBC 0.10.0 (dev) documentation</title>
+        <title>adbc_driver_flightsql - ADBC 0.11.0 (dev) documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=369552022d0b975c8e74270ce6eabe0fb7978f24" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -50,7 +50,7 @@
   }
 </style>
 <script>
-  const currentVersion = "0.10.0 (dev)";
+  const currentVersion = "0.11.0 (dev)";
   const versionsRoot = "../../..";
 </script>
 <style>
@@ -105,7 +105,7 @@
     </script>
     
 <nav id="version-switcher">
-  <button type="button" onclick="document.getElementById('version-switcher').classList.toggle('open')">Version: 0.10.0 (dev)</button>
+  <button type="button" onclick="document.getElementById('version-switcher').classList.toggle('open')">Version: 0.11.0 (dev)</button>
   <div class="versions">
     <ul></ul>
   </div>
@@ -192,7 +192,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">ADBC 0.10.0 (dev) documentation</div></a>
+      <a href="../../index.html"><div class="brand">ADBC 0.11.0 (dev) documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -219,7 +219,7 @@
     <img class="sidebar-logo only-dark" src="../../_static/logo-dark.png" alt="Dark Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">ADBC 0.10.0 (dev) documentation</span>
+  <span class="sidebar-brand-text">ADBC 0.11.0 (dev) documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -346,6 +346,36 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adbc_driver_flightsql.</span></span><span class="sig-name descname"><span class="pre">ConnectionOptions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adbc_driver_flightsql.ConnectionOptions" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
 <p>Connection options specific to the Flight SQL driver.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="adbc_driver_flightsql.ConnectionOptions.OPTION_BOOL_SESSION_OPTION_PREFIX">
+<span class="sig-name descname"><span class="pre">OPTION_BOOL_SESSION_OPTION_PREFIX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'adbc.flight.sql.session.optionbool.'</span></em><a class="headerlink" href="#adbc_driver_flightsql.ConnectionOptions.OPTION_BOOL_SESSION_OPTION_PREFIX" title="Permalink to this definition">#</a></dt>
+<dd><p>Get or set a boolean valued session option.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="adbc_driver_flightsql.ConnectionOptions.OPTION_ERASE_SESSION_OPTION_PREFIX">
+<span class="sig-name descname"><span class="pre">OPTION_ERASE_SESSION_OPTION_PREFIX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'adbc.flight.sql.session.optionerase.'</span></em><a class="headerlink" href="#adbc_driver_flightsql.ConnectionOptions.OPTION_ERASE_SESSION_OPTION_PREFIX" title="Permalink to this definition">#</a></dt>
+<dd><p>Erase a session option (use “” as the value).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="adbc_driver_flightsql.ConnectionOptions.OPTION_SESSION_OPTIONS">
+<span class="sig-name descname"><span class="pre">OPTION_SESSION_OPTIONS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'adbc.flight.sql.session.options'</span></em><a class="headerlink" href="#adbc_driver_flightsql.ConnectionOptions.OPTION_SESSION_OPTIONS" title="Permalink to this definition">#</a></dt>
+<dd><p>Get all session options as a JSON key-value blob.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="adbc_driver_flightsql.ConnectionOptions.OPTION_SESSION_OPTION_PREFIX">
+<span class="sig-name descname"><span class="pre">OPTION_SESSION_OPTION_PREFIX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'adbc.flight.sql.session.option.'</span></em><a class="headerlink" href="#adbc_driver_flightsql.ConnectionOptions.OPTION_SESSION_OPTION_PREFIX" title="Permalink to this definition">#</a></dt>
+<dd><p>Get or set a session option.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="adbc_driver_flightsql.ConnectionOptions.OPTION_STRING_LIST_SESSION_OPTION_PREFIX">
+<span class="sig-name descname"><span class="pre">OPTION_STRING_LIST_SESSION_OPTION_PREFIX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'adbc.flight.sql.session.optionstringlist.'</span></em><a class="headerlink" href="#adbc_driver_flightsql.ConnectionOptions.OPTION_STRING_LIST_SESSION_OPTION_PREFIX" title="Permalink to this definition">#</a></dt>
+<dd><p>Get or set a string-list-valued session option as a JSON array.</p>
+</dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="adbc_driver_flightsql.ConnectionOptions.RPC_CALL_HEADER_PREFIX">
 <span class="sig-name descname"><span class="pre">RPC_CALL_HEADER_PREFIX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'adbc.flight.sql.rpc.call_header.'</span></em><a class="headerlink" href="#adbc_driver_flightsql.ConnectionOptions.RPC_CALL_HEADER_PREFIX" title="Permalink to this definition">#</a></dt>
@@ -483,6 +513,18 @@ floating-point seconds).</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adbc_driver_flightsql.</span></span><span class="sig-name descname"><span class="pre">StatementOptions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adbc_driver_flightsql.StatementOptions" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
 <p>Statement options specific to the Flight SQL driver.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="adbc_driver_flightsql.StatementOptions.LAST_FLIGHT_INFO">
+<span class="sig-name descname"><span class="pre">LAST_FLIGHT_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'adbc.flight.sql.statement.exec.last_flight_info'</span></em><a class="headerlink" href="#adbc_driver_flightsql.StatementOptions.LAST_FLIGHT_INFO" title="Permalink to this definition">#</a></dt>
+<dd><p>The latest FlightInfo value.</p>
+<p>Thread-safe.  Mostly useful when using incremental execution, where an
+advanced client may want to inspect the latest FlightInfo from the
+service, but without waiting for execute_partitions to return.  (The
+service may send an updated FlightInfo with progress/app_metadata
+values, but execute_partitions will only return if there are new
+endpoints.)</p>
+</dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="adbc_driver_flightsql.StatementOptions.QUEUE_SIZE">
 <span class="sig-name descname"><span class="pre">QUEUE_SIZE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'adbc.rpc.result_queue_size'</span></em><a class="headerlink" href="#adbc_driver_flightsql.StatementOptions.QUEUE_SIZE" title="Permalink to this definition">#</a></dt>
@@ -638,6 +680,11 @@ United States and other countries.
 <li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">adbc_driver_flightsql</span></code></a><ul>
 <li><a class="reference internal" href="#module-adbc_driver_flightsql">Low-Level API</a><ul>
 <li><a class="reference internal" href="#adbc_driver_flightsql.ConnectionOptions"><code class="docutils literal notranslate"><span class="pre">ConnectionOptions</span></code></a><ul>
+<li><a class="reference internal" href="#adbc_driver_flightsql.ConnectionOptions.OPTION_BOOL_SESSION_OPTION_PREFIX"><code class="docutils literal notranslate"><span class="pre">ConnectionOptions.OPTION_BOOL_SESSION_OPTION_PREFIX</span></code></a></li>
+<li><a class="reference internal" href="#adbc_driver_flightsql.ConnectionOptions.OPTION_ERASE_SESSION_OPTION_PREFIX"><code class="docutils literal notranslate"><span class="pre">ConnectionOptions.OPTION_ERASE_SESSION_OPTION_PREFIX</span></code></a></li>
+<li><a class="reference internal" href="#adbc_driver_flightsql.ConnectionOptions.OPTION_SESSION_OPTIONS"><code class="docutils literal notranslate"><span class="pre">ConnectionOptions.OPTION_SESSION_OPTIONS</span></code></a></li>
+<li><a class="reference internal" href="#adbc_driver_flightsql.ConnectionOptions.OPTION_SESSION_OPTION_PREFIX"><code class="docutils literal notranslate"><span class="pre">ConnectionOptions.OPTION_SESSION_OPTION_PREFIX</span></code></a></li>
+<li><a class="reference internal" href="#adbc_driver_flightsql.ConnectionOptions.OPTION_STRING_LIST_SESSION_OPTION_PREFIX"><code class="docutils literal notranslate"><span class="pre">ConnectionOptions.OPTION_STRING_LIST_SESSION_OPTION_PREFIX</span></code></a></li>
 <li><a class="reference internal" href="#adbc_driver_flightsql.ConnectionOptions.RPC_CALL_HEADER_PREFIX"><code class="docutils literal notranslate"><span class="pre">ConnectionOptions.RPC_CALL_HEADER_PREFIX</span></code></a></li>
 <li><a class="reference internal" href="#adbc_driver_flightsql.ConnectionOptions.TIMEOUT_FETCH"><code class="docutils literal notranslate"><span class="pre">ConnectionOptions.TIMEOUT_FETCH</span></code></a></li>
 <li><a class="reference internal" href="#adbc_driver_flightsql.ConnectionOptions.TIMEOUT_QUERY"><code class="docutils literal notranslate"><span class="pre">ConnectionOptions.TIMEOUT_QUERY</span></code></a></li>
@@ -662,6 +709,7 @@ United States and other countries.
 </ul>
 </li>
 <li><a class="reference internal" href="#adbc_driver_flightsql.StatementOptions"><code class="docutils literal notranslate"><span class="pre">StatementOptions</span></code></a><ul>
+<li><a class="reference internal" href="#adbc_driver_flightsql.StatementOptions.LAST_FLIGHT_INFO"><code class="docutils literal notranslate"><span class="pre">StatementOptions.LAST_FLIGHT_INFO</span></code></a></li>
 <li><a class="reference internal" href="#adbc_driver_flightsql.StatementOptions.QUEUE_SIZE"><code class="docutils literal notranslate"><span class="pre">StatementOptions.QUEUE_SIZE</span></code></a></li>
 <li><a class="reference internal" href="#adbc_driver_flightsql.StatementOptions.RPC_CALL_HEADER_PREFIX"><code class="docutils literal notranslate"><span class="pre">StatementOptions.RPC_CALL_HEADER_PREFIX</span></code></a></li>
 <li><a class="reference internal" href="#adbc_driver_flightsql.StatementOptions.SUBSTRAIT_VERSION"><code class="docutils literal notranslate"><span class="pre">StatementOptions.SUBSTRAIT_VERSION</span></code></a></li>

@@ -16,7 +16,7 @@
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="R" href="../../r/index.html" /><link rel="prev" title="Flight SQL Recipes" href="flight_sql.html" />
 
     <!-- Generated with Sphinx 6.2.1 and Furo 2024.01.29 -->
-        <title>PostgreSQL Recipes - ADBC 0.10.0 (dev) documentation</title>
+        <title>PostgreSQL Recipes - ADBC 0.11.0 (dev) documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=369552022d0b975c8e74270ce6eabe0fb7978f24" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -50,7 +50,7 @@
   }
 </style>
 <script>
-  const currentVersion = "0.10.0 (dev)";
+  const currentVersion = "0.11.0 (dev)";
   const versionsRoot = "../../..";
 </script>
 <style>
@@ -105,7 +105,7 @@
     </script>
     
 <nav id="version-switcher">
-  <button type="button" onclick="document.getElementById('version-switcher').classList.toggle('open')">Version: 0.10.0 (dev)</button>
+  <button type="button" onclick="document.getElementById('version-switcher').classList.toggle('open')">Version: 0.11.0 (dev)</button>
   <div class="versions">
     <ul></ul>
   </div>
@@ -192,7 +192,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">ADBC 0.10.0 (dev) documentation</div></a>
+      <a href="../../index.html"><div class="brand">ADBC 0.11.0 (dev) documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -219,7 +219,7 @@
     <img class="sidebar-logo only-dark" src="../../_static/logo-dark.png" alt="Dark Logo"/>
   </div>
   
-  <span class="sidebar-brand-text">ADBC 0.10.0 (dev) documentation</span>
+  <span class="sidebar-brand-text">ADBC 0.11.0 (dev) documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -452,10 +452,10 @@ to use don’t exist.</p>
 </section>
 <section id="loading-csv-files-into-postgresql">
 <h3>Loading CSV Files into PostgreSQL<a class="headerlink" href="#loading-csv-files-into-postgresql" title="Permalink to this heading">#</a></h3>
-<p>We can directly pass a <a class="reference external" href="https://arrow.apache.org/docs/python/generated/pyarrow.RecordBatchReader.html#pyarrow.RecordBatchReader" title="(in Apache Arrow v15.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyarrow.RecordBatchReader</span></code></a> (from
+<p>We can directly pass a <a class="reference external" href="https://arrow.apache.org/docs/python/generated/pyarrow.RecordBatchReader.html#pyarrow.RecordBatchReader" title="(in Apache Arrow v15.0.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyarrow.RecordBatchReader</span></code></a> (from
 <code class="docutils literal notranslate"><span class="pre">open_csv</span></code>) to <code class="docutils literal notranslate"><span class="pre">adbc_ingest</span></code>.  We can also pass a
-<a class="reference external" href="https://arrow.apache.org/docs/python/generated/pyarrow.dataset.Dataset.html#pyarrow.dataset.Dataset" title="(in Apache Arrow v15.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyarrow.dataset.Dataset</span></code></a>, or a
-<a class="reference external" href="https://arrow.apache.org/docs/python/generated/pyarrow.dataset.Scanner.html#pyarrow.dataset.Scanner" title="(in Apache Arrow v15.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyarrow.dataset.Scanner</span></code></a>.</p>
+<a class="reference external" href="https://arrow.apache.org/docs/python/generated/pyarrow.dataset.Dataset.html#pyarrow.dataset.Dataset" title="(in Apache Arrow v15.0.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyarrow.dataset.Dataset</span></code></a>, or a
+<a class="reference external" href="https://arrow.apache.org/docs/python/generated/pyarrow.dataset.Scanner.html#pyarrow.dataset.Scanner" title="(in Apache Arrow v15.0.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyarrow.dataset.Scanner</span></code></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">110</span><span class="k">with</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="k">as</span> <span class="n">cur</span><span class="p">:</span>
 <span class="linenos">111</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">pyarrow</span><span class="o">.</span><span class="n">csv</span><span class="o">.</span><span class="n">open_csv</span><span class="p">(</span><span class="n">csv_file</span><span class="p">)</span>
 <span class="linenos">112</span>    <span class="n">cur</span><span class="o">.</span><span class="n">adbc_ingest</span><span class="p">(</span><span class="s2">&quot;csvtable&quot;</span><span class="p">,</span> <span class="n">reader</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;create&quot;</span><span class="p">)</span>
