@@ -19,20 +19,18 @@
 #
 set -ue
 
-SOURCE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-if [ "$#" -ne 3 ]; then
-  echo "Usage: $0 <arrow-dir> <version> <next_version>"
-  echo "Usage: $0 ../arrow 0.1.0 1.0.0"
+if [ "$#" -ne 1 ]; then
+  echo "Usage: $0 <arrow-dir>"
+  echo "Usage: $0 ../arrow"
   exit 1
 fi
 
-. $SOURCE_DIR/utils-prepare.sh
+SOURCE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+source $SOURCE_DIR/utils-common.sh
+source $SOURCE_DIR/utils-prepare.sh
 
 arrow_dir=$1
-version=$2
-next_version=$3
-next_version_snapshot="${next_version}-SNAPSHOT"
 
 export ARROW_SOURCE="$(cd "${arrow_dir}" && pwd)"
 
@@ -42,15 +40,15 @@ git fetch --all --prune --tags --force -j$(nproc)
 git switch main
 git rebase apache/main
 
-echo "Updating versions for ${next_version_snapshot}"
-update_versions "${version}" "${next_version}" "snapshot"
-git commit -m "chore: update versions for ${next_version_snapshot}"
+echo "Updating versions for ${RELEASE}-SNAPSHOT"
+update_versions "snapshot"
+git commit -m "chore: update versions for ${RELEASE}-SNAPSHOT"
 echo "Bumped versions on branch."
 
 ############################# Update Changelog ##############################
 
-git checkout apache-arrow-adbc-${version} -- CHANGELOG.md
-git commit -m "chore: update changelog for ${version}"
+git checkout apache-arrow-adbc-${PREVIOUS_RELEASE} -- CHANGELOG.md
+git commit -m "chore: update changelog for ${PREVIOUS_RELEASE}"
 echo "Updated changelog on branch."
 
 echo "Review the commits just made."
