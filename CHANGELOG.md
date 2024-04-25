@@ -511,3 +511,26 @@
 - **c/driver_manager**: differentiate errors from driver manager (#1662)
 - **c/driver/sqlite**: port to driver base (#1603)
 - **go/adbc/driver**: driverbase implementation for connection (#1590)
+
+## ADBC Libraries 2024.05 (2024-04-25)
+
+### Feat
+
+- **csharp/src/Apache.Arrow.Adbc**: Remove AdbcConnection.GetInfo(List<int>) (#1760)
+- **glib**: add GADBCArrowConnection (#1754)
+- **rust**: add complete FFI bindings (#1742)
+- **glib**: Add garrow_connection_get_statistic_names() (#1748)
+- **glib**: Add garrow_connection_get_statistics() (#1744)
+- **c/driver/postgresql**: add money type and test intervals (#1741)
+- **rust**: add public abstract API and dummy driver implementation (#1725)
+- **csharp/src/Drivers**: introduce drivers for Apache systems built on Thrift (#1710)
+- **format**: add info codes for supported capabilities (#1649)
+
+### Fix
+
+- **csharp/src/Apache.Arrow.Adbc**: Fix marshaling in three functions where it was broken (#1758)
+- **csharp/src/Apache.Arrow.Adbc**: Add support to the C Exporter for converting exceptions into AdbcErrors (#1752)
+- **format**: correct duplicated statistics names (#1736)
+- **dev/release**: correct C# version bump regex (#1733)
+- **r**: Ensure CXX_STD is set everywhere (#1706)
+- **csharp**: Resolve memory leaks described by #1690 (#1695)
