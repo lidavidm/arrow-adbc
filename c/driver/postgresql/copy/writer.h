@@ -494,6 +494,28 @@ class PostgresCopyTimestampFieldWriter : public PostgresCopyFieldWriter {
   }
 };
 
+class PostgresCopyArrayFieldWriter : public PostgresCopyFieldWriter {
+ public:
+  explicit PostgresCopyArrayFieldWriter(std::unique_ptr<PostgresCopyFieldWriter> child)
+      : child_{std::move(child)} {}
+
+  ArrowErrorCode Write(ArrowBuffer* buffer, int64_t index, ArrowError* error) override {
+    // TODO: we need to preprocess nested arrays
+    // TODO: we need child OID too
+    if (ArrowArrayViewIsNull(array_view_, index)) {
+      constexpr int32_t field_size_bytes = -1;
+      NANOARROW_RETURN_NOT_OK(WriteChecked<int32_t>(buffer, field_size_bytes, error));
+    } else {
+      // Need to come back to field_size_bytes at the end
+    }
+
+    return ADBC_STATUS_OK;
+  }
+
+ private:
+  std::unique_ptr<PostgresCopyFieldWriter> child_;
+};
+
 static inline ArrowErrorCode MakeCopyFieldWriter(
     struct ArrowSchema* schema, std::unique_ptr<PostgresCopyFieldWriter>* out,
     ArrowError* error) {
@@ -566,9 +588,10 @@ static inline ArrowErrorCode MakeCopyFieldWriter(
       }
       return NANOARROW_OK;
     }
-    case NANOARROW_TYPE_INTERVAL_MONTH_DAY_NANO:
+    case NANOARROW_TYPE_INTERVAL_MONTH_DAY_NANO: {
       *out = std::make_unique<PostgresCopyIntervalFieldWriter>();
       return NANOARROW_OK;
+    }
     case NANOARROW_TYPE_DURATION: {
       switch (schema_view.time_unit) {
         case NANOARROW_TIME_UNIT_SECOND:
@@ -605,6 +628,12 @@ static inline ArrowErrorCode MakeCopyFieldWriter(
         default:
           break;
       }
+    }
+    case NANOARROW_TYPE_LIST: {
+      std::unique_ptr<PostgresCopyFieldWriter> child;
+      NANOARROW_RETURN_NOT_OK(MakeCopyFieldWriter(schema->children[0], &child, error));
+      *out = std::make_unique<PostgresCopyArrayFieldWriter>(std::move(child));
+      return NANOARROW_OK;
     }
     default:
       break;
